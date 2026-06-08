@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Go
+bin/
+pkg/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
