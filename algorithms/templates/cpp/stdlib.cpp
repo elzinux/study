@@ -37,13 +37,17 @@ void test_vector(){
     a.resize(10, 0); // 加长到 10 并为增加的元素赋值 0
 
     if (!a.empty()){
+        // vector,deque,string,list都有 front 和 back 访问第一个和最后一个元素，返回的是引用，所以可以直接修改元素值。
+        a.front() = 10;
+        a.back() = 100;
+        cout << a.front()  << " " << a.back() << endl;
         cout << a[0] << endl;
     }
 
-    // 定义一个 3 行 4 列的二维数组
-    vector<vector<int>> mat(3, vector<int>(4,0));
+    // 定义一个 3 行 4 列的二维数组, 不赋值默认为0
+    vector<vector<int>> mat(3, vector<int>(4,1));
     // 定义一个 3 * 4 * 5 的三位数组
-    vector<vector<vector<int>>> f(3, vector<vector<int>>(4, vector<int>(5, 0)));
+    vector<vector<vector<int>>> f(3, vector<vector<int>>(4, vector<int>(5, 1)));
 }
 
 
@@ -51,11 +55,15 @@ void test_queue(){
     queue<int> q;
     q.push(1);
     q.push(0);
-    cout << q.front() << endl;
-    cout << q.back() << endl;
-    q.pop(); // 出队：移除第一个进队的元素，不返回如何内容
+    if (!q.empty()){
+        cout << q.front() << endl;
+        cout << q.back() << endl;
+        q.pop(); // 出队：移除第一个进队的元素，不返回如何内容
+    }
     cout << q.size() << endl;
     cout << q.empty() << endl;
+
+    queue<tuple<int, long long, string>> q3;
 
     deque<int> dq;
     dq.push_front(0);
@@ -63,19 +71,25 @@ void test_queue(){
     dq.pop_back();
     dq.pop_front();
     dq.push_back(10);
-    cout << dq.front() << endl;
-    cout << dq.back() << endl;
+    if (!dq.empty()){
+        cout << dq.front() << endl;
+        cout << dq.back() << endl;
+    }
 
     priority_queue<int> hp; // 默认为大根堆
     hp.push(10);
     hp.push(10);
-    cout << hp.top() << endl;
-    hp.pop();
+    if (!hp.empty()){
+        cout << hp.top() << endl;
+        hp.pop();
+    }
 
     priority_queue<int, vector<int>, greater<int>> min_hp;
     min_hp.push(10);
-    cout << min_hp.top() << endl;
-    min_hp.pop();
+    if (!min_hp.empty()){
+        cout << min_hp.top() << endl;
+        min_hp.pop();
+    }
 
 }
 
