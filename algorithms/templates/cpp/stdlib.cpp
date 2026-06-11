@@ -127,7 +127,7 @@ void test_set(){
     for (;it2!=s.end();it2++) cout << *it2 << endl;
 
     multiset<int> ms = {1,1,2,3,3,3}; // 允许有重复的元素
-    for (int x: ms) cout << x << ' '; // 打印"1 1 2"
+    for (int x: ms) cout << x << ' '; // 打印"1 1 2 3 3 3"
     cout << endl;
     // 与 set 的区别
     cout << ms.erase(3) << endl; // 删除所有 3 并且打印 3 的个数
