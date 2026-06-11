@@ -298,7 +298,7 @@ void func_math(){
     cout << gcd(x,y) << endl; 
     cout << lcm(x, y) << endl;
 
-    function<int(unsigned long long)> bit_width = [](unsigned long long x){
+    auto bit_width = [](unsigned long long x){
         int res = 0;
         while (x) {
             x >>= 1;
